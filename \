@@ -2,10 +2,9 @@
 <div class="page-content">
 <div class="title">
     <h3 class="title">
-        Sản phẩm
+        Thêm bài viết
     </h3>
 </div>
-<div id="fldgroup">
     {% for dssanpham in hang_sanpham %}
     <div class="list-product">
         {% for duongdan, tensanpham, hinhanh, giatien in dssanpham %}
@@ -31,5 +30,4 @@
         {% endfor %}
     </div>
     {% endfor %}
-</div>
 </div>
