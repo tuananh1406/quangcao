@@ -1,0 +1,11 @@
+#wrapper{width:800px; margin:auto}
+#header { display:none}
+/********************************** Left *******************************/
+
+.left-content{display:none}
+
+
+/**************** Main -content****************/
+
+.main-content{overflow:hidden; text-align:left; float:none;width:800px !important }
+#footer{ display:none}

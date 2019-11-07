@@ -1,0 +1,71 @@
+{% load static %}
+<div class="menuFooter">
+    <ul>
+        {% for link, tieude, noidung in danhmuc %}
+        <li>
+            <a href="{{ link }}"
+               title="{{ tieude }}">
+                {{ tieude }}
+            </a>
+        </li>
+        {% endfor %}
+        <li>
+            <a href="#"
+               title="Sitemap">
+                Sitemap
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="footer">
+    <div
+        style="overflow:hidden; line-height:25px; text-align:left; width:600px; float:left; padding-left:10px">
+        <a href="#">
+            <img alt="làm biển quảng cáo"
+                 src="{% static "hinhanh/gag_logo.png" %}"
+                 style="width:132px;height:130px;float:left;margin-left:10px;margin-right:10px;"
+                 title="làm biển quảng cáo">
+        </a>
+        <span style="font-family:tahoma,geneva,sans-serif;">
+            <span style="font-size:12px;">
+                <a href="#">
+                    <span style="color:#d3d3d3;">
+                        <strong>Tên công ty</strong>
+                    </span>
+                </a>
+                <br>
+                Điện thoại hỗ trợ:
+                <a href="tel:0346542765">
+                    <span style="color:#ffffff;">0346.542.765</span>
+                </a>
+                /
+                <a href="tel:04567890">
+                    <span style="color:#ffffff;">
+                        04567890
+                    </span>
+                </a>
+                - Fax: 04567890
+            </span>
+            <br>
+            Email hỗ trợ: email....
+            <br>
+            Trụ sở: Địa chỉ......
+            <br>
+            Xưởng sản xuất:.......
+        </span>
+        <br>
+        Khoảng chứa liên kết
+    </div>
+    <div class="socia">
+        {% for hinhanh, duongdan, noidung in links %}
+        <p>
+            <a href="{{ duondan }}"
+               target="_blank">
+                <img src="{% static hinhanh %}"
+                     alt="">
+                {{ noidung }}
+            </a>
+        </p>
+        {% endfor %}
+    </div>
+</div>

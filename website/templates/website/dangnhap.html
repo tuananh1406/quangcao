@@ -1,0 +1,44 @@
+{# extends 'website/giaodien.html' #}
+{% extends 'website/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="left-content">
+    <div class="block-content">
+        <div class="product-left">
+            <p class="name">
+                <a href="#"
+                   title="Biển hộp đèn">
+                    Biển hộp đèn
+                </a>
+            </p>
+            <div class="img">
+                <a href="#"
+                   title="Biển hộp đèn">
+                    <img src="{% static "hinhanh/bienhopden.jpg" %}"
+                         alt="Biển hộp đèn"
+                         title="Biển hộp đèn">
+                </a>
+            </div>
+            <p class="price">giá tiền</p>
+        </div>
+    </div>
+</div>
+<div class="main-content">
+    <div class="page-content">
+        {% block contentchinh %}
+        <div class="title">
+            <h3 class="title">
+                Đăng nhập
+            </h3>
+        </div>
+        <form id="frmLogin"
+              name="frmLogin"
+              method="POST">
+            {% csrf_token %}
+            {% include 'website/formdangnhap.html' %}
+        </form>
+        {% endblock %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,21 @@
+<form
+    name="themsanpham"
+    method="POST"
+    enctype="multipart/form-data">
+    <fieldset id="fldgroup">
+    {% csrf_token %}
+    {{ form.media }}
+    {% for field in form %}
+    <p>
+        {{ field.label_tag }}
+        {{ field }}
+    </p>
+    {% endfor %}
+    </fieldset>
+    <p class="btn">
+    <input class="button"
+           type="submit"
+           name="submit"
+           value="Tải lên">
+    </p>
+</form>

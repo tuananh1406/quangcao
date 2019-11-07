@@ -1,0 +1,280 @@
+{% load static %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta 
+            http-equiv="Content-Type" 
+            content="text/html; charset=utf-8" />
+        <title>Công ty làm biển quảng cáo GAGVIETNAM</title>
+        <meta 
+            name="Keywords" 
+            content="làm biển quảng cáo, làm biển công ty, công ty làm biển quảng cáo, làm biển giá rẻ, làm biển giá tốt, làm biển quảng cáo tại hà nội, làm biển phòng ban" />
+        <meta 
+            name="viewport" 
+            content="width=device-width, initial-scale=1.0"/>
+        <meta 
+            name="Description" 
+            content="Chuyên thiết kế thi công biển bảng quảng cáo trên mọi chất liệu, làm biển công ty, làm biển quảng cáo chuyên nghiệp tại hà nội" />
+        <link 
+            rel="shortcut icon" 
+            href="{% static "hinhanh/favicon.ico" %}" />
+        <link  
+            href="{% static "website/style.css" %}" 
+            rel="stylesheet" 
+            type="text/css" 
+            media="all" />
+        <link  
+            href="{% static "website/responsive.css" %}" 
+            rel="stylesheet" 
+            type="text/css" 
+            media="all" />
+        <link  
+            href="{% static "website/print.css" %}" 
+            rel="stylesheet" 
+            type="text/css" 
+            media="print" />
+        <script 
+            language="javascript" 
+            src="{% static "website/jquery.js" %}">
+        </script>
+        <script 
+            language="javascript" 
+            src="{% static "website/popper.min.js" %}">
+        </script>
+        <script 
+            language="javascript" 
+            src="{% static "website/bootstrap.min.js" %}">
+        </script>
+        <script 
+            language="javascript" 
+            src="{% static "website/custom.js" %}">
+        </script>
+    </head>
+    <body>
+        <div class="background">
+            <div id="wrapper">
+                <div id="header">
+                    <div class="banner">
+                        <a class="no-respon" href="">
+                            <img 
+                                             src="{% static "hinhanh/top_banner.png" %}"
+                                             alt="">
+                        </a>
+                        <div class="logo">
+                            <a href="#">
+                                <img 
+                               src="{% static "hinhanh/top_logo.png" %}"
+                               alt="">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="menuTop">
+                        <div id="dt-menu-toggle"
+                             class="dt-menu-toggle dt-menu-toggle-1">
+                            Menu chính
+                            <span class="dt-menu-toggle-icon">
+                            </span>
+                        </div>
+                        <ul class="ul-parent">
+                            {% for link, tieude, noidung in danhmuc %}
+                            {% block kichhoat %}
+                            {% if tieude == 'trang chủ' %}
+                            <li class="active">
+                                {% else %}
+                                <li>
+                                    {% endif %}
+                                    {% endblock %}
+                                    {% if noidung %}
+                                    <span class="appendLink" 
+                                          data-id="{{ noidung.id }}">
+                                    </span>
+                                    {% endif %}
+                                    <a href="{{ link }}"
+                                       title="{{ tieude }}">
+                                        {{ tieude }}
+                                    </a>
+                                    {% if noidung %}
+                                    <ul id="ul_{{ noidung.id }}">
+                                        {% for lienket, tieude in noidung.dulieu %}
+                                        <li>
+                                            <a href="{{ lienket }}"
+                                               title="{{ tieude }}">
+                                                {{ tieude }}
+                                            </a>
+                                        </li>
+                                        {% endfor %}
+                                    </ul>
+                                    {% endif %}
+                                </li>
+                                {% endfor %}
+                                {% if user.is_authenticated %}
+                                <li>
+                                    <span class="appendLink"
+                                          data-id="10">
+                                    </span>
+                                    <a title="quản trị viên">
+                                        Quản trị viên
+                                    </a>
+                                    <ul id="ul_10">
+                                        <li>
+                                            <a href="{% url 'website:themsanpham' %}"
+                                               title="Thêm sản phẩm">
+                                                Thêm sản phẩm
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{% url 'website:thembaiviet' %}"
+                                               title="Thêm bài viết">
+                                                Thêm bài viết
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{% url 'website:dangxuat' %}"
+                                               title="đăng xuất">
+                                                Đăng xuất
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                {% endif %}
+                        </ul>
+                        <p class="link">
+                        {% for hinhanh, duongdan, noidung in links %}
+                        <a
+                            href="{{ duongdan }}"
+                            target="_blank">
+                            <img src="{% static hinhanh %}"
+                                 alt="">
+                        </a>
+                        {% endfor %}
+                        </p>
+                    </div>
+                    <div class="block-header">
+                        <div class="category-product">
+                            <p class="title">
+                            <a href="#"
+                               title="Làm biển quảng cáo">
+                                Làm biển quảng cáo
+                            </a>
+                            </p>
+                            <ul id="">
+                                <!--Danh mục bên trái-->
+                                {% for lienket, tieude in danhsach_sanpham %}
+                                <li>
+                                    <a href="#"
+                                       title="Tiêu đề">
+                                        {{ tieude }}
+                                    </a>
+                                </li>
+                                {% endfor %}
+                                <!--Hết danh mục trái-->
+                            </ul>
+                        </div>
+                        <script type="text/javascript"
+                                src="{% static "website/js.slide.js" %}">
+                        </script>
+                        <script type="text/javascript">
+                            $(function() {
+                                $(".slideHome").jCarouselLite({
+                                    vertical: false,
+                                    hoverPause: true,
+                                    visible: 1,
+                                    scroll:1,
+                                    auto: 2500,
+                                    speed: 500,
+                                    btnNext: ".btn-next",
+                                    btnPrev: ".btn-pre",
+                                });
+                            });
+                        </script>
+                        <div class="wrapSlide">
+                            <form id="frmSearch"
+                                  name="frmSearch"
+                                  method="post"
+                                  action="/timkiem">
+                                <input type="image"
+                                       src="{% static "hinhanh/btn-search.png" %}" />
+                                <input type="text"
+                                       name="keyword"
+                                       id="keyword" />
+                            </form>
+                            <div class="slideHome">
+                                <ul>
+                                    {% for slide in trinhchieu %}
+                                    <li>
+                                        <a href="">
+                                            <img src="{{ slide.duongdan }}"
+                                                 alt="{{ slide.tieude }}"
+                                                 title="{{ slide.tieude }}"
+                                                 />
+                                        </a>
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="block-support">
+                            <p class="title">Kết nối</p>
+                            <div class="support">
+                                <p class="cell">
+                                số điện thoại
+                                </p>
+                                <p class="skype">
+                                <a href="skype:skype?chat">
+                                    Phòng ban
+                                </a>
+                                </p>
+                                <p class="yahoo">
+                                <a href="ymsgr:sendIMy">
+                                    Phòng ban
+                                </a>
+                                </p>
+                            </div>
+                            <div class="support">
+                                <p class="cell">
+                                số điện thoại
+                                </p>
+                                <p class="skype">
+                                <a href="skype:skype?chat">
+                                    Phòng ban
+                                </a>
+                                </p>
+                                <p class="yahoo">
+                                <a href="ymsgr:sendIMy">
+                                    Phòng ban
+                                </a>
+                                </p>
+                            </div>
+                            <div class="support">
+                                <p class="cell">
+                                số điện thoại
+                                </p>
+                                <p class="skype">
+                                <a href="skype:skype?chat">
+                                    Phòng ban
+                                </a>
+                                </p>
+                                <p class="yahoo">
+                                <a href="ymsgr:sendIMy">
+                                    Phòng ban
+                                </a>
+                                </p>
+                            </div>
+                            <div class="hotline">
+                                <p>Hot line</p>
+                                số hot line
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="content">
+                    {% block content %}
+                    {% endblock %}
+                </div>
+                <div id="footer">
+                    {% include 'website/giaodien_footer.html' %}
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,814 @@
+/* CSS Document */
+
+@font-face {
+font-family: 'UTMNeoSansIntel';
+src: url('utmneosansintel.eot'); /* IE9 Compat Modes */
+src: url('utmneosansintel.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+	    url('utmneosansintel.woff') format('woff'), /* Modern Browsers */
+	    url('utmneosansintel.ttf')  format('truetype'), /* Safari, Android, iOS */
+	    url('utmneosansintel.svg#UTMNeoSansIntel') format('svg'); /* Legacy iOS */
+}
+
+
+
+*{ margin:0; padding:0;}
+
+
+
+*{ margin:0; padding:0;}
+
+body{ margin:0; padding:0; font-family:Tahoma, Geneva, sans-serif; font-size:12px;  text-align:center; background:#d8d5d5 url(../hinhanh/bg-top.png) top center repeat-x; }
+
+div{ margin:0; padding:0}
+
+img { border:none}
+
+ul ,li{ list-style:none}
+
+a { text-decoration:none; color:black }
+
+.clear{ clear:both}
+
+input.button{ width:auto !important; padding:4px 15px 4px 15px !important; background:#ed1b24; color:white; font-weight:bold; cursor:pointer; border:none !important} 
+
+.left-content h2, .right-content h2{ text-align:left; font-size:12px; font-weight:normal;  text-transform:uppercase; line-height:31px; height:31px; background:url(../hinhanh/bg-title-left.png) left center no-repeat; color:#FFF; padding-left:25px; }
+
+
+
+.left-content h3{ line-height:25px; color:white; background:#0066cc url(../hinhanh/icon-row.png) 8px  center no-repeat; padding-left:25px; margin:5px 0 5px 0 }
+
+.left-content h3 a{ color:white; font-weight:normal; font-family:Arial, Helvetica, sans-serif}
+
+h3.title2{ overflow:hidden; line-height:30px; color:#416a66; background:url(../hinhanh/flower2.png) left center no-repeat; padding-left:25px}
+
+h3.title2 a{ color:#416a66;}
+
+h3.title, h1.title{font-size:12px;   text-align:left; padding:0 50px 0 20px;  text-transform:uppercase; font-size:12px; background:#ed1b24; color:white; float:left  }
+
+div.title{ height:30px; line-height:30px; overflow:hidden; margin-bottom:5px }
+
+.background{ overflow:hidden; background:url(../hinhanh/bg-wrapper.png) center repeat-y }
+
+#wrapper{ width:992px;margin:0 auto;  overflow:hidden; }
+
+.bg-content{ overflow:hidden; background:url(../hinhanh/bg-mid-content.png) center repeat-y}
+
+.box-shadown{-moz-box-shadow: 0 0 3px 3px #afafaf;
+
+-webkit-box-shadow: 0 0 3px 3px #afafaf;
+
+box-shadow: 0 0 3px 3px #afafaf;width:980px; margin:auto; position:relative;}
+
+/******************* Header ********************************/
+
+#header{margin:auto; clear:both; position:relative;width:100%; position:relative; overflow:hidden }
+
+.banner{overflow:hidden; position:relative; padding:5px 0  0 0;}
+
+.banner .logo{ position:absolute; top:20px; left:10px; overflow:hidden}
+
+.menuTop { height:43px; line-height:53px;}
+
+.menuTop ul{}
+
+.menuTop li{ display:inline; float:left; padding:0 10px 0 10px; position:relative ;}
+
+.menuTop li:last-child{ border:none; padding-right:0}
+.menuTop li:first-child{ }
+
+.menuTop li a{ color:#FFF;  font-family:'UTMNeoSansIntel'; text-transform:uppercase; font-size:15px}
+
+.menuTop li:hover , .menuTop li.active a{color:#f9a71a}
+
+.menuTop a:hover { color:#f9a71a}
+
+.menuTop .link{ margin:13px 0 0 0; float:right} 
+.menuTop .link img{float:left}
+
+/*************************** Sub menu********************/
+
+.menuTop ul li ul{ overflow:hidden; position:absolute; top:38px; left:0px;width:210px; z-index:99; display:none; visibility:visible; padding-top:10px; background:#ec1f27}
+
+.menuTop ul li:hover ul{ display:block}
+
+.menuTop ul li ul li{ text-align:left; border-bottom:1px solid #FFF; width:200px; line-height:28px !important; padding-left:10px !important;  margin:0;}
+
+.menuTop ul li ul li:hover{}
+
+.menuTop ul li ul li a{ text-transform:none; font-size:12px; font-family:Arial, Helvetica, sans-serif; color:#FFF !important}
+
+.menuTop ul li ul li a:hover{color:#f9a71a !important}
+
+#header .sologan{height:30px; line-height:30px; background:#f7931e; text-align:center; text-transform:uppercase; font-size:15px; overflow:hidden}
+
+#header .date{width:170px; float:left; color:white}
+
+p.cart{ line-height:30px; text-align:right}
+
+p.cart a{ color:white; text-transform:uppercase; background:url(../hinhanh/icon-cart.png) left center no-repeat; padding-left:35px}
+
+#frmSearch { margin: 0px 0 10px 0; overflow:hidden}
+
+#header #frmSearch input{ padding:0; margin:0px 0 0 0; float:right }
+
+#frmSearch p{ overflow:hidden; float:left;}
+
+#header #frmSearch select{ width:150px}
+
+#frmSearch label{ line-height:25px; margin-right:5px; font-weight:bold}
+
+#header #frmSearch{ text-align:right;}
+
+#header #frmSearch #keyword{ margin:0px 0px 0 0;  background:#FFF url(../hinhanh/bg-search.png) left center no-repeat;width:327px; border:none; height:28px; color:#000; padding-left:45px; border-top:1px solid #6d6d6d; border-bottom:1px solid #6d6d6d; outline:none; line-height:28px}
+
+#header #frmSearch #submit{  border:none; cursor:pointer;width:auto; background:#203c95; padding:3px 5px 3px 5px !important; margin:2px 0 0 0}
+
+/********************** Slide***********************/
+
+.slide-product{ overflow:hidden; width:100%; margin:15px 0 15px 0 }
+
+.slide-product ul{width:2000px; overflow:hidden}
+
+.slide-product li{ overflow:hidden; float:left; margin:0 15px 0 15px;width:140px; height:180px; text-align:center; border:1px solid #696661}
+
+.slide-product li img{width:120px;}
+
+.slide-product li p{ margin:5px 0 8px 0; font-weight:bold; min-height:35px}
+
+/*****************************  Content ************************************************/
+
+#content{ text-align:left; padding:5px ; width:982px; margin:8px auto auto auto; overflow:hidden; background:#FFF; position:relative}
+
+
+
+/********************************** Left *******************************/
+
+.left-content{width:250px; overflow:hidden; float:left}
+
+ul#category{margin:0px 0px 0px 0px;}
+
+ul#category li{ margin:0 0px 0 0px;padding-left:15px; line-height:31px; height:31px; background:url(../hinhanh/bg-li.png) left center no-repeat}
+
+#category span{cursor:pointer; color:#FFF}
+
+ul#category li.active{}
+
+ul#category li:last-child{ border-bottom:none}
+
+ul#category li a{text-transform:uppercase; font-weight:bold; color:#000}
+
+ul#category li a:hover,ul#category li a.active{}
+
+ul#category li ul{ margin:0px;}
+
+
+
+
+
+
+
+.block-left{overflow:hidden; margin:0px 0 0px 0; padding:0px 0 0px 0; }
+
+.block-left li a{ color:#384878; font-weight:bold}
+
+.block-left li a:hover{ text-decoration:underline}
+
+
+
+p.list-news a{ color:#3c3c3c; font-weight:bold}
+
+
+
+.block-left .news{ overflow:hidden; margin:10px 0 2px 0; text-align:justify; padding:0 5px 0 5px;}
+
+.block-left .news img{ float:left; margin:0 5px 0px 0;width:80px; border:1px solid #CCC}
+
+.block-left h4{ margin-bottom:5px; font-weight:normal; line-height:21px}
+
+.block-left h4 a{ color:#FFF}
+
+
+
+/******************************** SUPPORT ****************************/
+
+.hotline{ margin:0px 0 0 0px; background:url(../hinhanh/hotline.png) left center no-repeat; line-height:25px; height:60px; color:#ed1b24;  padding:20px 0 5px 60px; font-weight:bold;  text-align:left}
+
+.support{ overflow:hidden;  padding:0px 0 5px 0 ; margin:3px ;  text-align:left; border-bottom:1px solid #959192}
+
+.support  .yahoo a{background:url(../hinhanh/yahoo.png) left center no-repeat ; padding:0 0 0 20px;}
+
+.support  .skype a{background:url(../hinhanh/skype.png) left center no-repeat ; padding:0 0 0 20px;}
+
+.support  .cell{background:url(../hinhanh/phone.png) left center no-repeat ; padding:0 0 0 20px;}
+
+.support p{ overflow:hidden; margin:0px 0 0 0px;   line-height:25px; font-weight:bold; font-family:Tahoma, Geneva, sans-serif}
+
+.support p span.name{}
+
+.support p span.cell{ }
+
+.support img{ float:left; margin:0 5px 0 5px}
+
+
+
+/******************************** Counter ****************************/
+
+
+
+.counter{  overflow:hidden;  padding:10px 5px 10px 70px;width:140px; background:url(../hinhanh/bg-counter.png) 10px center no-repeat; color:#FFF}
+
+.counter p{ line-height:28px; font-weight:bold; overflow:hidden;  text-align:left; }
+
+
+
+.counter p span{ text-align:right; margin-right:5px; float:right }
+
+.left-content  .block-left .img-ads{ width:240px; overflow:hidden; margin:5px 0 10px 0; text-align:center}
+
+
+
+
+
+/***************************  News *******************************/
+
+.otherNews{ overflow:hidden}
+
+.otherNews p{ line-height:20px; margin:10px 0 0 0; background:url(../hinhanh/icon/icon-list-news.png) left center no-repeat; padding-left:20px}
+
+/*************************** RIGHT ********************************/
+
+.right-content{ overflow:hidden; width:19%; float:right;}
+
+.block-right{ overflow:hidden; text-align:center; margin-bottom:10px;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px; background:#e8eefe}
+
+
+
+/**************** Main -content****************/
+
+.main-content{overflow:hidden; float:right;padding:0px 5px 0 10px;width:705px; text-align:left; border-left:1px solid #838989; min-height:2150px}
+
+#content .main-content p.top{height:17px; background:url(../hinhanh/bg-top-block-2.png) center}
+
+#content .main-content .middel{background:url(../hinhanh/bg-middel-block-22.png)1px top repeat-y; overflow:hidden; }
+
+
+
+#content .main-content p.bottom{height:17px; background:url(../hinhanh/bg-bottom-block-2.png) center}
+
+
+
+.list-product{overflow:hidden; margin:10px 0px 10px 0px; border-bottom:1px solid #838989; padding-bottom:8px; color:#0f0e0e}
+
+.list-product .product-item,.product-item-last{overflow:hidden; width:244px;  float:left; margin:0 0px 0 0; text-align:center; border-right:1px solid #838989; text-align:center}
+
+
+
+.list-product .product-item-last{ofloat:right;  margin-right:0px; border:none  }
+
+.list-product .img {text-align:center;overflow:hidden; margin-bottom:5px;}
+
+.list-product .img img{height:183px; max-width:226px}
+
+.list-product .name{text-align:center; line-height:20px;  margin:2px ; min-height:40px; font-size:12px; text-transform:uppercase}
+
+.list-product .name a{  font-weight:bold; color:#0f0e0e }
+
+.list-product p.price{color:#f05a5f;  text-align:center;  line-height:25px; text-transform:uppercase; font-weight:bold; height:25px}
+
+.list-product p.price span{ color:black}
+
+
+
+.page-content .list-product p.code{ background:#2e7d14; color:white; overflow:hidden; margin-bottom:5px }
+
+.list-product .order {width:48%; float:right; background:#3b3d3c; font-weight:bold; color:white}
+
+.list-product .detail { background:#757575;width:48%; float:left;color:white; font-weight:bold}
+
+.list-product .action{ overflow:hidden; padding:0; text-align:center; line-height:25px; margin:2px}
+
+
+
+.product-left { overflow:hidden; margin:10px 0px 15px 0px; border-bottom:1px solid #838989;  text-align:center}
+
+.product-left  .name{ text-transform:uppercase; font-weight:bold; margin-bottom:10px}
+
+.product-left  .price{ color:#f35441; line-height:25px; text-transform:uppercase; font-weight:bold; margin-bottom:10px}
+
+.product-left a{ color:#5e5e5e}
+
+.product-left img{ margin-bottom:8px; max-width:240px}
+
+/****************************** User ******************************/
+
+#frmLogin{ margin-top:20px}
+
+#frmLogin input{width:180px; padding:2px}
+
+#frmLogin .error{ color:red; margin-left:120px}
+
+#fldLogin{ overflow:hidden; width:400px; margin:auto; border: 1px solid #CCC; padding:10px}
+
+#fldLogin p{ overflow:hidden; margin:10px 0 10px 0}
+
+#fldLogin p label{ float:left;width:120px}
+
+#fldLogin p.btn{ margin-left:120px}
+
+/*************** Footer ****************************************************************/
+
+#footer{ overflow:hidden;text-align:center;  margin:auto; padding:0px 0 0px 0; clear:both; background:#FFF}
+
+.footer{margin:auto; line-height:22px; overflow:hidden;width:100% ; text-align:center; color:white; background:#000000 url(../hinhanh/bg-footer.png) right bottom no-repeat; padding-top:15px}
+
+.menuFooter{ overflow:hidden;background:#ed1b24}
+
+.menuFooter ul{ }
+
+.menuFooter li{ text-align:center; display:inline;  overflow:hidden; padding:0 20px 0 20px ;  color:white;  line-height:28px; border-right:1px solid #FFF}
+
+.menuFooter li:last-child{ border:none; }
+
+.menuFooter li a{ color:#FFF; text-transform:capitalize; font-family:Tahoma, Geneva, sans-serif ; font-size:13px}
+
+.paging{ margin:15px 0px 0 0; font-size:12px; clear:both; padding:5px 0 5px 0; text-align:center}
+
+.paging div{ float:left;padding:0 2px 0 2px; color:black;  display:inline; margin-left:5px }
+
+.paging  .num{padding:8px; font-size:12px;  margin-right:5px; font-weight:bold}
+
+.paging .curent {  padding:8px; font-weight:bold;background:url(../hinhanh/bg-page.png) center no-repeat; color:#FFF; margin-right:5px }
+
+.paging img{ margin:10px 0px 0 0px; }
+
+
+
+
+
+#lbOverlay {position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background-color: #000; cursor: pointer;}
+
+
+
+
+
+
+
+#lbCenter, #lbBottomContainer {	position: absolute; z-index: 9999; overflow: hidden; background-color: #fff;}
+
+
+
+
+
+
+
+.lbLoading {background: #fff url(../hinhanh/loading.gif) no-repeat center;}
+
+
+
+
+
+
+
+#lbImage {position: absolute; left: 0; top: 0; border: 10px solid #fff; background-repeat: no-repeat; }
+
+
+
+
+
+
+
+#lbPrevLink, #lbNextLink {display: block; position: absolute; top: 0; width: 50%; outline: none; }
+
+
+
+
+
+
+
+#lbPrevLink {left: 0;}
+
+#lbPrevLink:hover {	background: transparent url(../hinhanh/prevlabel.gif) no-repeat 0 15%;}
+
+#lbNextLink {right: 0;} 
+
+#lbNextLink:hover {	background: transparent url(../hinhanh/nextlabel.gif) no-repeat 100% 15%;}
+
+
+
+
+
+
+
+#lbBottom {font-family: Verdana, Arial, Geneva, Helvetica, sans-serif; font-size: 10px; color: #666; line-height: 1.4em; text-align: left; border: 10px solid #fff; border-top-style: none;}
+
+
+
+
+
+
+
+#lbCloseLink {display: block; float: right; width: 66px; height: 22px; background: transparent url(../hinhanh/closelabel.gif) no-repeat center; margin: 5px 0; outline: none; }
+
+
+
+
+
+
+
+#lbCaption, #lbNumber {margin-right: 71px; }
+
+
+
+
+
+
+
+#lbCaption {font-weight: bold;}	
+
+
+
+
+
+
+
+.block-left .partner{ overflow:hidden; text-align:center}
+
+.block-left .partner img{ margin:10px 0 10px 0}
+
+
+
+
+
+.page-content{ overflow:hidden; margin:0 0px 0px 0px;}
+
+
+
+.block-cate{ overflow:hidden; background:url(../hinhanh/bg-bottom-cate.png) bottom center no-repeat; padding-bottom:13px;}
+
+.block-cate ul{ background:#edd890;margin: 0 2px 0 5px}
+
+.block-cate ul li{ background:url(../hinhanh/icon-li.png) right center no-repeat; padding-left:25px; line-height:30px; border-bottom:1px dashed #a1702a;margin:0 5px 0 5px; font-style:italic}
+
+.block-cate a{ color:#773700; text-transform:uppercase}
+
+.block-left p.news{ overflow:hidden; line-height:20px; margin:5px 5px 10px 5px; font-weight:bold}
+
+.block-left p.news img{ float:left; margin-right:5px}
+
+
+
+
+
+/********************************* BreadCrumd ************************************/
+
+.breadcrumb{ height:20px; line-height:20px;}
+
+.breadcrumb li{ float:left; color:white; font-family:Verdana, Geneva, sans-serif; font-size:11px}
+
+.breadcrumb li a{color:white}
+
+/************************* SLIDE ********************/
+
+.newsHome{ overflow:hidden; margin:10px 0 15px 3px;width:620px; float:left}
+
+.newsHome .first-news{width:226px; float:left; overflow:hidden; line-height:22px; text-align:justify; margin:5px 0 0 0}
+.newsHome .img{ background:url(../hinhanh/bg-img.png) center no-repeat;width:226px; height:152px; text-align:center; overflow:hidden}
+.newsHome img{width:212px; max-height:145px}
+
+.newsHome a{ color:#2a7bc1; }
+
+.newsHome p{ line-height:22px; text-align:justify}
+
+.newsHome .item{ overflow:hidden; width:380px;  float:right; clear:right}
+.newsHome .item p{ padding-left:20px; overflow:hidden}
+
+.newsHome .item h4{ background:url(../hinhanh/icon-row.png) left 7px no-repeat; padding-left:15px; margin-bottom:5px; line-height:20px}
+
+
+
+.newsHome a:hover{ text-decoration:underline}
+
+.adsLeft{ overflow:hidden; text-align:center}
+
+.adsLeft img{ width:210px; margin:10px 0 10px 0}
+
+
+
+
+
+.block-ads{ overflow:hidden; text-align:center}
+
+.block-ads img{ max-width:210px; margin:10px 0 10px 0; border:1px solid #CCC; padding:1px}
+
+.block-ads a{ color:#000}
+
+
+
+
+
+
+
+.page-content div.img-detail{width:255px;  float:left; margin:10px 0 15px 0; overflow:hidden; text-align: center;  text-align:center}
+
+.page-content .img-detail img{ text-align:center; max-width:250px; }
+
+
+
+div.info {width:350px;margin:10px 0 0 0px; padding-left:20px;  overflow:hidden; float:left;  position:relative;}
+
+div.info p{  font-size:12px;  line-height:30px;}
+
+.info .intro{ line-height:25px}
+
+.info .intro h3{ border-bottom:1px solid #d5d5d5}
+
+div.info p.price{ color:red }
+
+div.info p label{width:100px; float:left; font-weight:bold}
+
+.detail-product h3{ float:left; font-weight:bold;font-size:14px; margin:0 0 15px 0px; padding:0 0 5px 0;  display:block; width:100%; background:none; color:black; text-transform:none; border-bottom:1px solid #d5d5d5} 
+
+
+
+.detail-product{ margin:10px 0 15px 0; overflow:hidden; clear:both;  }
+
+#frmWeblink select{width:200px; margin:10px 0 10px 10px}
+
+.listAds{ overflow:hidden; text-align:center; margin:10px 0 10px 0}
+
+.listAds a{ font-weight:bold; color:#2568ac}
+
+.listAds img{ max-width:200px; width:auto !important;width:200px}
+
+.block-right table{width:200px; margin: 10px auto; background:#CCC}
+
+.block-right table tr{ background:#FFF}
+
+.block-right table th, .block-right table td{ line-height:25px}
+
+.block-right .news{ overflow:hidden; padding:5px}
+
+.block-right .news  a{ color:#872603}
+
+
+
+.block-header{ overflow:hidden; width:982px; background:#FFF; padding:16px 5px 0px 5px; margin:2px 0 0 0;}
+
+.block-header .title{ text-transform:uppercase; font-weight:bold; color:white; background:#ec1f27; text-align:center; line-height:30px}
+
+.block-header .title a{ color:white}
+
+.block-header .category-product{width:250px; overflow:hidden; float:left; border-right:10px solid #d8d5d5; height:370px; padding-right:10px}
+
+.category-product li{ line-height:30px; text-align:left; background:url(../hinhanh/icon-row.png) left center no-repeat; padding-left:15px; border-bottom:1px solid #949091}
+
+.category-product a{ font-family:Tahoma, Geneva, sans-serif; font-size:13px; font-weight:bold}
+
+.block-header .view-all a{ background:url(../hinhanh/icon-row.png) left center no-repeat; padding-left:15px; }
+
+
+
+.block-support{ overflow:hidden;width:235px; float:right; margin:0 0px 0 0}
+
+.factory{ overflow:hidden; width:33%; float:right; padding-top:7px}
+
+.factory  img{width:120px; height:62px; margin:0 5px 5px 0; float:left}
+
+.factory  img.first{ height:130px;width:130px;}
+
+.share{ overflow:hidden; margin:5px 0 10px 0; background:#ddcee5 url(../hinhanh/share.png) left center no-repeat; padding-left:80px; height:25px; line-height:25px}
+
+.share img{ float:left; margin:2px 20px 0 0}
+
+.share p{ overflow:hidden; text-align:center; color:#000; line-height:30px}
+
+.slideProduct{ overflow:hidden; height:140px; border:1px solid;width:735px !important; border:2px solid #7e0555; margin:15px 0 15px 0}
+
+.slideProduct ul{ overflow:hidden; height:140px;}
+
+.slideProduct li{ float:left; display:inline;width:160px; height:120px;  text-align:center; margin:10px 10px}
+
+.slideProduct img{ height:120px}
+
+.slideProduct .btn-next, .slideProduct .btn-pre{ overflow:hidden; height:50px; width:50px; position:absolute; top:40px; z-index:99; cursor:pointer}
+
+.slideProduct .btn-next{ right:0; background:url(../hinhanh/icon-right.png) center no-repeat}
+
+.slideProduct .btn-pre{ left:0; background:url(../hinhanh/icon-left.png) center no-repeat}
+
+
+
+#frmContact { margin:20px 0 0 10px}
+
+
+
+#frmContact span{ color:red}
+
+
+
+#frmContact p { overflow:hidden; margin:10px 0 5px 0; clear:both}
+
+
+
+#frmContact p label { float:left; width:130px; font-size:12px}
+
+
+
+#frmContact p input {width:300px; border:1px solid #b0b0b0; padding:2px 0 2px 0}
+
+
+
+#frmContact textarea{ width:300px; height:100px;border:1px solid #b0b0b0;}
+
+
+
+.content_page .note{font-size:12px; }
+
+
+
+.error{ color:red !important; font-size:12px; padding-left:130px}
+
+
+
+.success{ color:#063;  font-size:12px; line-height:18px}
+
+
+
+#frmContact .btn{ padding-left:130px;}
+
+.note{ font-size:12px; font-weight:bold}
+
+.productSeller{ overflow:hidden; margin:10px 0 10px 5px; position:relative; }
+
+.productSeller li{width:155px; overflow:hidden; float:left;  text-align:center; line-height:25px; font-weight:bold; margin-right:10px; border:1px solid #f48632; height:105px}
+
+.productSeller li img{ height:105px; width:155px}
+
+.productSeller ul{ overflow:hidden;width:2000px}
+
+.productSeller .btn-pre{ overflow:hidden; position:absolute; top:40px; left:0; width:20px; height:50px; cursor:pointer; background:url(../hinhanh/btn-pre1.png) center no-repeat}
+
+.productSeller .btn-next{ overflow:hidden; position:absolute; top:40px; right:0; width:20px; height:50px; cursor:pointer; background:url(../hinhanh/btn-next1.png) center no-repeat}
+
+.block-footer{ overflow:hidden; line-height:22px;width:485px; float:left; text-align:left}
+
+.block-footer .news{ overflow:hidden; margin:10px 0 10px 0}
+
+.block-footer .news img{ float:left; margin:3px 7px 0 0;width:91px; height:65px}
+
+.block-footer .news a{}
+
+.block-footer .item{ background:url(../hinhanh/icon-row3.png) left center no-repeat; padding-left:17px; line-height:25px}
+
+.block-footer .photo{ overflow:hidden;  margin:15px 0 5px 0}
+
+.block-footer .photo img{ height:100px; float:left; margin-right:10px;width:148px; border:1px solid #CCC}
+
+.slideFooter{ overflow:hidden; margin:0px 0 0 0; background:#faf3bf; padding:10px 0 10px 0}
+
+.slideFooter ul{ overflow:hidden; width:2500px; }
+
+.slideFooter li{width:155px; border:1px solid #CCC; height:115px; padding:5px 0 5px 0px; text-align:center; margin-right:10px; float:left; overflow:hidden}
+
+.slideFooter img{ height:115px}
+
+
+
+.block-footer{ overflow:hidden; background:#2c5646; color:#FFF;width:100%}
+
+.block-footer .block{width:450px; float:left; padding:10px}
+
+.block-footer h3{ color:#FFF; text-transform:uppercase; border-bottom:1px solid #32920c; margin-bottom:10px}
+
+.slide-service{ overflow:hidden; width:100%; margin:20px 0 10px 0 }
+
+.slide-service ul{width:2000px}
+
+.slide-service h4{ text-transform:uppercase; margin-bottom:5px; background:url(../hinhanh/bg-title1.png) repeat-x; line-height:31px; text-align:center; font-weight:normal}
+
+.slide-service h4 a{ color:#FFF}
+
+.slide-service li{width:230px; float:left; overflow:hidden; margin:0 10px 0 10px; text-align:left;}
+
+.slide-service p{ line-height:20px; text-align:justify}
+
+.slide-service .view-more{ line-height:21px; text-align:right}
+
+.slide-service .view-more a{}
+
+.slide-service img{ width:228px; height:164px; margin-bottom:8px}
+
+.socia{ overflow:hidden;width:290px; overflow:hidden; background:url(../hinhanh/line.png) left top no-repeat; padding:15px 0 0px 20px; height:160px }
+
+.socia p{ overflow:hidden; line-height:30px; color:white; float:left;width:140px; text-align:left; margin-bottom:8px}
+
+.socia img{  margin-right:8px; float:left}
+
+.socia a{ color:white}
+
+.video{ overflow:hidden; float:right; margin:12px 5px 0 0}
+
+.lienKetBaoChi{ overflow:hidden}
+
+.lienKetBaoChi li{ display:inline; float:left; border:1px solid #b9baba; text-align:center; width:220px; margin:10px 10px 10px 11px }
+
+.lienKetBaoChi img{ max-height:81px}
+
+
+
+.partner{ overflow:hidden}
+
+.partner li{ display:inline; float:left;  text-align:center; width:95px; margin:10px 7px 10px 7px }
+
+.partner img{ max-height:63px}
+
+.tag{ overflow:hidden; background:url(../hinhanh/tag.png) left 3px no-repeat; padding:0 0 0 68px; font-weight:bold; line-height:22px}
+
+.product-item3{ overflow:hidden; position:relative; clear:both; margin-top:15px;width:100%}
+
+.product-item3 img{width:195px; max-height:135px; float:left; margin:0 10px 2px 0}
+
+.product-item3 hr{ float:right;width:510px; position:absolute; bottom:0; right:0}
+
+.product-item3 .detail{ text-align:right; font-weight:bold; }
+
+.product-item3 .detail a{  background:url(../hinhanh/icon-row.png) left center no-repeat; padding-left:12px; }
+
+.product-item3 p{ line-height:23px; text-align:justify; overflow:hidden}
+
+.product-item3 h2{ font-size:12px; margin-bottom:7px}
+
+.product-item3 h2 a{ color:#ed1b24; font-size:13px}
+
+.slideHome{position:relative; overflow:hidden; height:314px ;width:457px; float:left;}
+
+.slideHome li{width:457px; overflow:hidden}
+
+.wrapSlide{width:457px; text-align:center;overflow:hidden; margin:0px auto 0px 10px; z-index:0; position:relative; float:left  }
+
+
+
+.slideHome img{width:457px; height:314px}
+.back-top{ position:absolute; bottom:0; right:0}
+.no-desk{display:none;}
+.dt-menu-toggle {
+	background: #EC1F27 none repeat scroll 0 0;
+}
+.dt-menu-toggle {
+	color: #ffffff;
+	cursor: pointer;
+	display: none;
+	font-size: 16px;
+	font-weight: bold;
+	padding: 0px 15px;
+	text-transform: uppercase;
+}
+.dt-menu-toggle-icon {
+	background: #ffffff none repeat scroll 0 0;
+	display: inline-block;
+	float: right;
+	height: 2px;
+	margin-top: 25px;
+	position: relative;
+	text-align: left;
+	width: 20px;
+}
+.dt-menu-toggle-icon::before, .dt-menu-toggle-icon::after {
+	background: #ffffff none repeat scroll 0 0;
+	content: "";
+	height: 2px;
+	left: 0;
+	position: absolute;
+	top: -5px;
+	width: 20px;
+}
+.dt-menu-toggle-icon::after {
+	top: 5px;
+}
+.appendLink {
+	display:none;
+	cursor: pointer;
+	-moz-border-bottom-colors: none !important;
+	-moz-border-left-colors: none !important;
+	-moz-border-right-colors: none !important;
+	-moz-border-top-colors: none !important;
+	background: #fff none repeat scroll 0 0 !important;
+	border-color: #fff -moz-use-text-color #fff #fff !important;
+	border-image: none !important;
+	border-style: solid solid solid solid !important;
+	border-width: 1px 1px 1px 1px !important;
+	color: #781F1B !important;
+	height: 30px !important;
+	line-height: 25px !important;
+	padding: 0px 10px !important;
+	position: absolute !important;
+	right: 25px !important;
+	z-index:888;
+	top:10px;
+}
+.appendLink:after{
+	content: "▼";
+}
+.rm-append-inactive:after{
+	content: "▲"!important;
+}
