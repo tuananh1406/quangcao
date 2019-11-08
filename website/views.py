@@ -41,7 +41,7 @@ def thongtin_trangchu():
                 "dulieu": danhsach_sanpham,
                 }
             ],
-        ["#", "dự án mới", None],
+        [reverse("website:xembaiviet"), "tin tức", None],
         ["#", "khuyến mãi", None],
         ["#", "khách hàng", None],
         ["#", "liên hệ", None],
@@ -170,3 +170,11 @@ def thembaiviet(request):
 def dangxuat(request):
     logout(request)
     return redirect("website:trangchu")
+
+def xembaiviet(request):
+    context = thongtin_trangchu()
+    return render(
+            request = request,
+            template_name = 'website/xem_baiviet.html',
+            context = context,
+            )
