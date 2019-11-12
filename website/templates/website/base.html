@@ -129,12 +129,28 @@
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="{% url 'website:xembaiviet' %}"
+                                               title="Xem bài viết">
+                                                Xem bài viết
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="{% url 'website:dangxuat' %}"
                                                title="đăng xuất">
                                                 Đăng xuất
                                             </a>
                                         </li>
                                     </ul>
+                                </li>
+                                {% else %}
+                                <li>
+                                    <span class="appendLink"
+                                          data-id="10">
+                                    </span>
+                                    <a href="{% url 'website:dangnhap' %}"
+                                        title="đăng nhập">
+                                        Đăng nhập
+                                    </a>
                                 </li>
                                 {% endif %}
                         </ul>

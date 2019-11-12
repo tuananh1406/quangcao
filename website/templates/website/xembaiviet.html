@@ -1,0 +1,38 @@
+{% extends 'website/base.html' %}
+{% load static %}
+{% block content%}
+<div class="title">
+    <h3 class="title">
+        Xem bài viết
+    </h3>
+</div>
+{% if user.is_authenticated %}
+{% for baiviet in dsbaiviet %}
+<div class="product-item3">
+    <a href="{% url 'website:duongdanrutgon' duongdan=baiviet.baiviet_slug %}"
+       title="">
+        <img src="{{ baiviet.baiviet_hinhanh.url }}"
+             alt=""
+             width="150">
+    </a>
+    <h4>
+        <a href="{% url 'website:duongdanrutgon' duongdan=baiviet.baiviet_slug %}"
+           title="{{ baiviet.baiviet_tieude }}">
+            {{ baiviet.baiviet_tieude }}
+    </h4>
+    <p class="sapo">
+    {{ baiviet.baiviet_noidung_rutgon|safe }}
+    </p>
+    <p class="detail">
+        <a href="{% url 'website:duongdanrutgon' duongdan=baiviet.baiviet_slug %}"
+           title="Xem chi tiết">
+            Xem chi tiết
+        </a>
+    </p>
+    <hr width="1" size="1" color="#959192">
+</div>
+{% endfor %}
+{% else %}
+    Bạn chưa đăng nhập
+{% endif %}
+{% endblock %}

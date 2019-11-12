@@ -8,15 +8,19 @@ class FormSanpham(forms.ModelForm):
         model = Sanpham
         fields = ('sanpham_ten', 'sanpham_hinhanh', 'sanpham_giatien')
 
-class FormBaiViet(forms.ModelForm):
-    content = forms.CharField(
+class FormBaiViet(forms.Form):
+    tieude = forms.CharField(
+            label="Tiêu đề",
+            max_length=100,
+            )
+    hinhanh = forms.ImageField(
+            label="Ảnh bìa",
+            )
+    noidung = forms.CharField(
             label="Nội dung",
             widget=CKEditorUploadingWidget,
             )
-    class Meta:
-        model = BaiViet
-        fields = (
-                'baiviet_tieude',
-                'baiviet_noidung',
-                'baiviet_noidung_rutgon',
-                )
+    noidung_rutgon = forms.CharField(
+            label="Nội dung rút gọn",
+            widget=CKEditorUploadingWidget,
+            )

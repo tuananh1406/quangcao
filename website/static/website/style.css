@@ -741,7 +741,7 @@ div.info p label{width:100px; float:left; font-weight:bold}
 
 .product-item3 img{width:195px; max-height:135px; float:left; margin:0 10px 2px 0}
 
-.product-item3 hr{ float:right;width:510px; position:absolute; bottom:0; right:0}
+.product-item3 hr{ float:right;width:100%; position:absolute; bottom:0; right:0}
 
 .product-item3 .detail{ text-align:right; font-weight:bold; }
 
