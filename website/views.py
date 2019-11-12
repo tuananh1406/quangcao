@@ -4,8 +4,9 @@ from django.contrib.auth import logout, authenticate, login
 from django.http import HttpResponse
 from django.contrib.auth.forms import AuthenticationForm
 from django.urls import reverse
-from .models import Sanpham
+from .models import Sanpham,BaiViet
 from .forms import FormSanpham, FormBaiViet
+from .xuly import taoslug, kiemtraslug
 
 # Create your views here.
 def lay_sanpham():
@@ -153,10 +154,18 @@ def thembaiviet(request):
     if not request.user.is_authenticated:
         return redirect("website:dangnhap")
     if request.method == "POST":
-        form = FormBaiViet(request.POST)
+        form = FormBaiViet(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
-            return redirect('/')
+            baiviet = BaiViet()
+            baiviet.baiviet_tieude = form.cleaned_data['tieude']
+            baiviet.baiviet_hinhanh = form.cleaned_data['hinhanh']
+            baiviet.baiviet_noidung = form.cleaned_data['noidung']
+            baiviet.baiviet_noidung_rutgon = form.cleaned_data['noidung_rutgon']
+            ds_slug = [ cacbaiviet.baiviet_slug for cacbaiviet in BaiViet.objects.all() ]
+            slug = taoslug(baiviet.baiviet_tieude).lower()
+            baiviet.baiviet_slug = kiemtraslug(ds_slug, slug)
+            baiviet.save()
+            return redirect('website:xembaiviet')
     else:
         form = FormBaiViet()
     context = thongtin_trangchu()
@@ -166,6 +175,26 @@ def thembaiviet(request):
             template_name = 'website/thembaiviet.html',
             context = context,
             )
+
+def xembaiviet(request):
+    context = thongtin_trangchu()
+    context['dsbaiviet'] = BaiViet.objects.all()
+    return render(
+            request=request,
+            template_name = 'website/xembaiviet.html',
+            context=context,
+            )
+
+def duongdanrutgon(request, duongdan):
+    ds_baiviet = [baiviet.baiviet_slug for baiviet in BaiViet.objects.all()]
+    ds_sanpham = [sanpham.sanpham_slug for sanpham in Sanpham.objects.all()]
+    if duongdan in ds_baiviet:
+        return HttpResponse("%s bài viết" % (duongdan))
+    return HttpResponse("%s không tìm thấy" % (duongdan))
+
+    if duongdan in ds_sanpham:
+        return HttpResponse("%s bài viết" % (duongdan))
+    return HttpResponse("%s không tìm thấy" % (duongdan))
 
 def dangxuat(request):
     logout(request)

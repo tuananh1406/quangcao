@@ -3,18 +3,6 @@ from django.contrib import admin
 from .models import BaiViet, Sanpham, Congty, Phongban
 
 # Register your models here.
-class BaiVietAdmin(admin.ModelAdmin):
-    fieldsets = [
-            ("Tiêu đề/Thời gian",
-                {'fields': [
-                    "baiviet_tieude",
-                    "baiviet_ngaydang",
-                    ]}),
-            ("Nội dung",
-                {'fields': [
-                    "baiviet_noidung"]})
-    ]
-
 class SanphamAdmin(admin.ModelAdmin):
     fieldsets = [
             ("Tên",
@@ -27,6 +15,18 @@ class SanphamAdmin(admin.ModelAdmin):
                 {'fields': [ "sanpham_giatien",]}
                 ),
             ]
+
+class BaiVietAdmin(admin.ModelAdmin):
+    fieldsets = [
+            ("Tiêu đề/Thời gian",
+                {'fields': [
+                    "baiviet_tieude",
+                    "baiviet_ngaydang",
+                    ]}),
+            ("Nội dung",
+                {'fields': [
+                    "baiviet_noidung"]})
+    ]
 
 class CongtyAdmin(admin.ModelAdmin):
     fieldsets = [
