@@ -9,52 +9,45 @@
             </a>
         </li>
         {% endfor %}
-        <li>
-            <a href="#"
-               title="Sitemap">
-                Sitemap
-            </a>
-        </li>
     </ul>
 </div>
 <div class="footer">
     <div
         style="overflow:hidden; line-height:25px; text-align:left; width:600px; float:left; padding-left:10px">
-        <a href="#">
-            <img alt="làm biển quảng cáo"
-                 src="{% static "hinhanh/gag_logo.png" %}"
+        <a href="{% url 'website:trangchu' %}">
+            <img alt="{{ congty.congty_ten }}"
+                 src="{{ congty.congty_logo.url }}"
                  style="width:132px;height:130px;float:left;margin-left:10px;margin-right:10px;"
-                 title="làm biển quảng cáo">
+                 title="{{ congty.congty_ten }}">
         </a>
         <span style="font-family:tahoma,geneva,sans-serif;">
             <span style="font-size:12px;">
-                <a href="#">
+                <a href="{% url 'website:trangchu' %}">
                     <span style="color:#d3d3d3;">
-                        <strong>Tên công ty</strong>
+                        <strong>{{ congty.congty_ten }}</strong>
                     </span>
                 </a>
                 <br>
                 Điện thoại hỗ trợ:
-                <a href="tel:0346542765">
-                    <span style="color:#ffffff;">0346.542.765</span>
+                <a href="tel:{{ congty.congty_dienthoai }}">
+                    <span style="color:#ffffff;">{{ congty.congty_dienthoai }}</span>
                 </a>
                 /
-                <a href="tel:04567890">
+                <a href="tel:{{ congty.congty_hotline }}">
                     <span style="color:#ffffff;">
-                        04567890
+                        {{ congty.congty_hotline }}
                     </span>
                 </a>
-                - Fax: 04567890
+                - Fax: {{ congty.congty_hotline }}
             </span>
             <br>
-            Email hỗ trợ: email....
+            Email hỗ trợ: {{ congty.congty_email }}
             <br>
-            Trụ sở: Địa chỉ......
+            Trụ sở: {{ congty.congty_diachi }}
             <br>
-            Xưởng sản xuất:.......
+            Xưởng sản xuất: {{ congty.congty_xuongsanxuat }}
         </span>
         <br>
-        Khoảng chứa liên kết
     </div>
     <div class="socia">
         {% for hinhanh, duongdan, noidung in links %}

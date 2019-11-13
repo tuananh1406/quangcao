@@ -6,7 +6,6 @@
         Xem bài viết
     </h3>
 </div>
-{% if user.is_authenticated %}
 {% for baiviet in dsbaiviet %}
 <div class="product-item3">
     <a href="{% url 'website:duongdanrutgon' duongdan=baiviet.baiviet_slug %}"
@@ -32,7 +31,4 @@
     <hr width="1" size="1" color="#959192">
 </div>
 {% endfor %}
-{% else %}
-    Bạn chưa đăng nhập
-{% endif %}
 {% endblock %}
