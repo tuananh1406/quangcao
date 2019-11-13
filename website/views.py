@@ -4,7 +4,7 @@ from django.contrib.auth import logout, authenticate, login
 from django.http import HttpResponse
 from django.contrib.auth.forms import AuthenticationForm
 from django.urls import reverse
-from .models import Sanpham,BaiViet
+from .models import Sanpham,BaiViet, Congty
 from .forms import FormSanpham, FormBaiViet
 from .xuly import taoslug, kiemtraslug
 
@@ -34,9 +34,9 @@ def thongtin_trangchu():
 
     #Danh mục trên
     danhmuc = [
-        ["/", "trang chủ", None],
+        [reverse("website:trangchu"), "trang chủ", None],
         ["#", "giới thiệu", None],
-        ["#", "sản phẩm",
+        [reverse("website:xembaiviet"), "sản phẩm",
             {
                 "id": 18,
                 "dulieu": danhsach_sanpham,
@@ -45,7 +45,6 @@ def thongtin_trangchu():
         ["#", "dự án mới", None],
         ["#", "khuyến mãi", None],
         ["#", "khách hàng", None],
-        ["#", "liên hệ", None],
         ]
 
     #Danh sách mạng xã hội
@@ -80,8 +79,14 @@ def thongtin_trangchu():
 
     #Quản trị viên
     quantri = [
-            ['#', 'Thêm sản phẩm'],
+            [reverse('website:themsanpham'), 'Thêm sản phẩm'],
+            #[reverse('website:xemsanpham'), 'Xem sản phẩm'],
+            [reverse('website:thembaiviet'), 'Thêm bài viết'],
+            [reverse('website:xembaiviet'), 'Xem bài viết'],
             ]
+
+    #Thông tin công ty
+    congty = Congty.objects.all()[0]
 
     #Tạo nội dung trang chủ
     context_trangchu = {
@@ -89,6 +94,7 @@ def thongtin_trangchu():
         "links": links,
         "trinhchieu": trinhchieu,
         "danhsach_sanpham": danhsach_sanpham,
+        "congty": congty,
         }
     return context_trangchu
 
@@ -164,6 +170,8 @@ def thembaiviet(request):
             ds_slug = [ cacbaiviet.baiviet_slug for cacbaiviet in BaiViet.objects.all() ]
             slug = taoslug(baiviet.baiviet_tieude).lower()
             baiviet.baiviet_slug = kiemtraslug(ds_slug, slug)
+            id_sanpham = form.cleaned_data['sanpham']
+            baiviet.baiviet_sanpham = Sanpham.objects.get(sanpham_id=id_sanpham)
             baiviet.save()
             return redirect('website:xembaiviet')
     else:

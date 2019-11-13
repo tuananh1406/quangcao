@@ -24,3 +24,9 @@ class FormBaiViet(forms.Form):
             label="Nội dung rút gọn",
             widget=CKEditorUploadingWidget,
             )
+    dssanpham = Sanpham.objects.all()
+    dsluachon = [
+            (sanpham.sanpham_id, sanpham.sanpham_ten)
+            for sanpham in dssanpham
+            ]
+    sanpham = forms.ChoiceField(label="Sản phẩm", choices=dsluachon)

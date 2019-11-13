@@ -25,7 +25,9 @@ class BaiVietAdmin(admin.ModelAdmin):
                     ]}),
             ("Nội dung",
                 {'fields': [
-                    "baiviet_noidung"]})
+                    "baiviet_noidung",
+                    "baiviet_sanpham",
+                    ]})
     ]
 
 class CongtyAdmin(admin.ModelAdmin):
