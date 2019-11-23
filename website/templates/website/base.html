@@ -61,10 +61,11 @@
                                              alt="">
                         </a>
                         <div class="logo">
-                            <a href="#">
+                            <a href="{% url 'website:trangchu' %}">
                                 <img 
-                               src="{% static "hinhanh/top_logo.png" %}"
-                               alt="">
+                               src="{{ congty.congty_logo.url }}"
+                               style="width:243px;height:243px;float:left;margin-left:10px;margin-right:10px;"
+                               alt="{{ congty.congty_ten }}">
                             </a>
                         </div>
                     </div>
