@@ -62,6 +62,7 @@ class Congty(models.Model):
 class Phongban(models.Model):
     tenphong = models.CharField('Tên phòng', max_length=100)
     sodienthoai = models.CharField('Số điện thoại', max_length=15)
+    chucvu = models.CharField('Chức vụ', max_length=50)
 
     class Meta:
         verbose_name_plural = "Phòng ban"

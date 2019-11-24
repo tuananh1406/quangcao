@@ -4,7 +4,7 @@ from django.contrib.auth import logout, authenticate, login
 from django.http import HttpResponse
 from django.contrib.auth.forms import AuthenticationForm
 from django.urls import reverse
-from .models import Sanpham,BaiViet, Congty
+from .models import Sanpham,BaiViet, Congty, Phongban
 from .forms import FormSanpham, FormBaiViet
 from .xuly import taoslug, kiemtraslug
 
@@ -88,6 +88,9 @@ def thongtin_trangchu():
     #Thông tin công ty
     congty = Congty.objects.all()[0]
 
+    #Phòng ban
+    phongban = Phongban.objects.all()
+
     #Tạo nội dung trang chủ
     context_trangchu = {
         "danhmuc": danhmuc,
@@ -95,6 +98,7 @@ def thongtin_trangchu():
         "trinhchieu": trinhchieu,
         "danhsach_sanpham": danhsach_sanpham,
         "congty": congty,
+        "phongban": phongban,
         }
     return context_trangchu
 
