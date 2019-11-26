@@ -5,7 +5,7 @@
         <meta 
             http-equiv="Content-Type" 
             content="text/html; charset=utf-8" />
-        <title>Công ty làm biển quảng cáo GAGVIETNAM</title>
+        <title>{{ congty.congty_ten }}</title>
         <meta 
             name="Keywords" 
             content="làm biển quảng cáo, làm biển công ty, công ty làm biển quảng cáo, làm biển giá rẻ, làm biển giá tốt, làm biển quảng cáo tại hà nội, làm biển phòng ban" />
@@ -14,7 +14,7 @@
             content="width=device-width, initial-scale=1.0"/>
         <meta 
             name="Description" 
-            content="Chuyên thiết kế thi công biển bảng quảng cáo trên mọi chất liệu, làm biển công ty, làm biển quảng cáo chuyên nghiệp tại hà nội" />
+            content="Chuyên thiết kế thi công biển bảng quảng cáo trên mọi chất liệu, làm biển công ty, làm biển quảng cáo chuyên nghiệp" />
         <link 
             rel="shortcut icon" 
             href="{% static "hinhanh/favicon.ico" %}" />
@@ -55,16 +55,18 @@
             <div id="wrapper">
                 <div id="header">
                     <div class="banner">
-                        <a class="no-respon" href="">
+                        <a class="no-respon" 
+                            href="{% url 'website:trangchu' %}">
                             <img 
-                                             src="{% static "hinhanh/top_banner.png" %}"
-                                             alt="">
+                                 src="{% static "hinhanh/top_banner.png" %}"
+                                 alt="">
                         </a>
                         <div class="logo">
-                            <a href="#">
+                            <a href="{% url 'website:trangchu' %}">
                                 <img 
-                               src="{% static "hinhanh/top_logo.png" %}"
-                               alt="">
+                               src="{{ congty.congty_logo.url }}"
+                               style="width:243px;height:243px;float:left;margin-left:10px;margin-right:10px;"
+                               alt="{{ congty.congty_ten }}">
                             </a>
                         </div>
                     </div>
@@ -231,54 +233,26 @@
                         </div>
                         <div class="block-support">
                             <p class="title">Kết nối</p>
+                            {% for ketnoi in phongban %}
                             <div class="support">
-                                <p class="cell">
-                                số điện thoại
+                                <p class="yahoo">
+                                <a href="ymsgr:sendIMy">
+                                    {{ ketnoi.tenphong }}
+                                </a>
                                 </p>
                                 <p class="skype">
                                 <a href="skype:skype?chat">
-                                    Phòng ban
+                                    {{ ketnoi.chucvu }}
                                 </a>
                                 </p>
-                                <p class="yahoo">
-                                <a href="ymsgr:sendIMy">
-                                    Phòng ban
-                                </a>
-                                </p>
-                            </div>
-                            <div class="support">
                                 <p class="cell">
-                                số điện thoại
-                                </p>
-                                <p class="skype">
-                                <a href="skype:skype?chat">
-                                    Phòng ban
-                                </a>
-                                </p>
-                                <p class="yahoo">
-                                <a href="ymsgr:sendIMy">
-                                    Phòng ban
-                                </a>
+                                    {{ ketnoi.sodienthoai }}
                                 </p>
                             </div>
-                            <div class="support">
-                                <p class="cell">
-                                số điện thoại
-                                </p>
-                                <p class="skype">
-                                <a href="skype:skype?chat">
-                                    Phòng ban
-                                </a>
-                                </p>
-                                <p class="yahoo">
-                                <a href="ymsgr:sendIMy">
-                                    Phòng ban
-                                </a>
-                                </p>
-                            </div>
+                            {% endfor %}
                             <div class="hotline">
                                 <p>Hot line</p>
-                                số hot line
+                                {{ congty.congty_hotline }}
                             </div>
                         </div>
                     </div>

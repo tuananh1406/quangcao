@@ -65,7 +65,7 @@ box-shadow: 0 0 3px 3px #afafaf;width:980px; margin:auto; position:relative;}
 
 .banner{overflow:hidden; position:relative; padding:5px 0  0 0;}
 
-.banner .logo{ position:absolute; top:20px; left:10px; overflow:hidden}
+.banner .logo{ position:absolute; top:10px; left:0px; overflow:hidden}
 
 .menuTop { height:43px; line-height:53px;}
 
