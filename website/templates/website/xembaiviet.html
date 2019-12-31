@@ -18,11 +18,16 @@
         <a href="{% url 'website:duongdanrutgon' duongdan=baiviet.baiviet_slug %}"
            title="{{ baiviet.baiviet_tieude }}">
             {{ baiviet.baiviet_tieude }}
+        </a>
     </h4>
     <p class="sapo">
     {{ baiviet.baiviet_noidung_rutgon|safe }}
     </p>
     <p class="detail">
+        <a href="{% url 'website:duongdanrutgon' duongdan=baiviet.baiviet_slug %}"
+           title="Xem chi tiết">
+            Xem chi tiết
+        </a>
         <a href="{% url 'website:duongdanrutgon' duongdan=baiviet.baiviet_slug %}"
            title="Xem chi tiết">
             Xem chi tiết
