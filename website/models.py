@@ -52,6 +52,8 @@ class Congty(models.Model):
     congty_diachi = models.CharField('Địa chỉ', max_length=1000)
     congty_xuongsanxuat = models.CharField('Xưởng sản xuất', max_length=1000)
     congty_logo = models.ImageField('Logo', upload_to='logo_congty')
+    congty_banner = models.ImageField('Banner', upload_to='banner',
+            default='banner/top_banner.png')
 
     class Meta:
         verbose_name_plural = "Công ty"

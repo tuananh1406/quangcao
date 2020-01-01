@@ -1,0 +1,10 @@
+{% extends 'website/base.html' %}
+{% load static %}
+{% block content%}
+<div class="title">
+    <h3 class="title">
+        {{ baiviet.baiviet_tieude }}
+    </h3>
+</div>
+{{ baiviet.baiviet_noidung|safe }}
+{% endblock %}
