@@ -34,9 +34,17 @@ def thongtin_trangchu():
 
     #Danh mục trên
     danhmuc = [
-        [reverse("website:trangchu"), "trang chủ", None],
-        ["#", "giới thiệu", None],
-        [reverse("website:xembaiviet"), "sản phẩm",
+        [reverse("website:trangchu"),
+            "trang chủ",
+            None],
+        [reverse(
+            "website:duongdanrutgon",
+            kwargs={'duongdan': 'gioi-thieu'}
+            ),
+            "giới thiệu",
+            None],
+        [reverse("website:xembaiviet"),
+            "sản phẩm",
             {
                 "id": 18,
                 "dulieu": danhsach_sanpham,
@@ -209,6 +217,7 @@ def duongdanrutgon(request, duongdan):
                 template_name = 'website/xemchitiet.html',
                 context = context,
                 )
+    return HttpResponse("%s không tìm thấy" % (duongdan))
     '''
     if duongdan in ds_baiviet:
         return HttpResponse("%s bài viết" % (duongdan))
