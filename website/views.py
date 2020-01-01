@@ -192,21 +192,32 @@ def xembaiviet(request):
     context = thongtin_trangchu()
     context['dsbaiviet'] = BaiViet.objects.all()
     return render(
-            request=request,
+            request = request,
             template_name = 'website/xembaiviet.html',
-            context=context,
+            context = context,
             )
 
 def duongdanrutgon(request, duongdan):
     ds_baiviet = [baiviet.baiviet_slug for baiviet in BaiViet.objects.all()]
     ds_sanpham = [sanpham.sanpham_slug for sanpham in Sanpham.objects.all()]
     if duongdan in ds_baiviet:
+        baiviet = BaiViet.objects.get(baiviet_slug=duongdan)
+        context = thongtin_trangchu()
+        context['baiviet'] = baiviet
+        return render(
+                request = request,
+                template_name = 'website/xemchitiet.html',
+                context = context,
+                )
+    '''
+    if duongdan in ds_baiviet:
         return HttpResponse("%s bài viết" % (duongdan))
     return HttpResponse("%s không tìm thấy" % (duongdan))
 
     if duongdan in ds_sanpham:
-        return HttpResponse("%s bài viết" % (duongdan))
+        return HttpResponse("%s sản phẩm" % (duongdan))
     return HttpResponse("%s không tìm thấy" % (duongdan))
+    '''
 
 def dangxuat(request):
     logout(request)
