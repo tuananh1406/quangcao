@@ -19,6 +19,29 @@ class Sanpham(models.Model):
     def __str__(self):
         return self.sanpham_ten
 
+class SanphamCon(models.Model):
+    sanpham_id = models.AutoField(primary_key=True)
+    sanpham_ten = models.CharField('Tên sản phẩm', max_length=200)
+    sanpham_hinhanh = models.ImageField('Đường dẫn hình ảnh',
+            upload_to='anhsanpham/')
+    sanpham_giatien = models.CharField('Giá tiền', max_length=50)
+    sanpham_slug = models.SlugField(
+            'Đường dẫn rút gọn',
+            default=1,
+            )
+    sanpham_sanphamcha = models.ForeignKey(
+            Sanpham,
+            default=3,
+            verbose_name="Sản phẩm",
+            on_delete=models.SET_DEFAULT,
+            )
+
+    class Meta:
+        verbose_name_plural = "Sản phẩm con"
+
+    def __str__(self):
+        return self.sanpham_ten
+
 class BaiViet(models.Model):
     baiviet_tieude = models.CharField('Tiêu đề', max_length=200)
     baiviet_hinhanh = models.ImageField('Ảnh bìa',

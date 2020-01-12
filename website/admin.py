@@ -1,9 +1,22 @@
 from django.db import models
 from django.contrib import admin
-from .models import BaiViet, Sanpham, Congty, Phongban
+from .models import BaiViet, Sanpham, Congty, Phongban, SanphamCon
 
 # Register your models here.
 class SanphamAdmin(admin.ModelAdmin):
+    fieldsets = [
+            ("Tên",
+                {'fields': [ "sanpham_ten",]}
+                ),
+            ("Hình ảnh",
+                {'fields': [ "sanpham_duongdan",]}
+                ),
+            ("Giá",
+                {'fields': [ "sanpham_giatien",]}
+                ),
+            ]
+
+class SanphamConAdmin(admin.ModelAdmin):
     fieldsets = [
             ("Tên",
                 {'fields': [ "sanpham_ten",]}
@@ -62,6 +75,7 @@ class PhongbanAdmin(admin.ModelAdmin):
                 ),
             ]
 
+admin.site.register(SanphamCon)
 admin.site.register(BaiViet, BaiVietAdmin)
 admin.site.register(Sanpham)
 admin.site.register(Phongban)

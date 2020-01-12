@@ -3,10 +3,18 @@ from .models import Sanpham, BaiViet
 from ckeditor_uploader.widgets import CKEditorUploadingWidget
 
 
-class FormSanpham(forms.ModelForm):
-    class Meta:
-        model = Sanpham
-        fields = ('sanpham_ten', 'sanpham_hinhanh', 'sanpham_giatien')
+class FormSanpham(forms.Form):
+    ten = forms.CharField(
+            label="Tên sản phẩm",
+            max_length=100,
+            )
+    hinhanh = forms.ImageField(
+            label="Hình ảnh",
+            )
+    giatien = forms.CharField(
+            label="Giá tiền",
+            max_length=100,
+            )
 
 class FormBaiViet(forms.Form):
     tieude = forms.CharField(
