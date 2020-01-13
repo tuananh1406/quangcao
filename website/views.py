@@ -97,24 +97,13 @@ def thongtin_trangchu():
             ["hinhanh/r.png", "#", "RSS"],
             ]
 
-    #Slide trình chiếu
+    #Tạo slide trình chiếu
+    sanphammoi = Sanpham.objects.order_by('sanpham_id').reverse()[:5]
     trinhchieu = [
             {
-                "duongdan": "/static/hinhanh/bienhopden.jpg",
-                "tieude": "Biển hộp đèn",
-                },
-            {
-                "duongdan": "/static/hinhanh/bienhopden1.jpg",
-                "tieude": "Biển hộp đèn",
-                },
-            {
-                "duongdan": "/static/hinhanh/bienopcot.jpg",
-                "tieude": "Biển hộp đèn",
-                },
-            {
-                "duongdan": "/static/hinhanh/bienhethong.jpg",
-                "tieude": "Biển hộp đèn",
-                },
+                "duongdan": sanpham.sanpham_hinhanh.url,
+                "tieude": sanpham.sanpham_ten,
+                } for sanpham in sanphammoi
             ]
 
     #Quản trị viên
