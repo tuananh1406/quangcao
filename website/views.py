@@ -5,7 +5,7 @@ from django.http import HttpResponse
 from django.contrib.auth.forms import AuthenticationForm
 from django.urls import reverse
 from .models import Sanpham, BaiViet, Congty, Phongban, SanphamCon
-from .forms import FormSanpham, FormBaiViet
+from .forms import FormSanpham, FormSanphamCon, FormBaiViet
 from .xuly import taoslug, kiemtraslug
 
 # Create your views here.
@@ -119,10 +119,26 @@ def thongtin_trangchu():
 
     #Quản trị viên
     quantri = [
-            [reverse('website:themsanpham'), 'Thêm sản phẩm'],
-            #[reverse('website:xemsanpham'), 'Xem sản phẩm'],
-            [reverse('website:thembaiviet'), 'Thêm bài viết'],
-            [reverse('website:xembaiviet'), 'Xem bài viết'],
+            [
+                reverse('website:themsanpham'),
+                'Thêm sản phẩm',
+                ],
+            [
+                reverse('website:themsanphamcon'),
+                'Thêm sản phẩm con',
+                ],
+            [
+                reverse('website:thembaiviet'),
+                'Thêm bài viết',
+                ],
+            [
+                reverse('website:xembaiviet'),
+                'Xem bài viết',
+                ],
+            [
+                reverse('website:dangxuat'),
+                'Đăng xuất',
+                ],
             ]
 
     #Thông tin công ty
@@ -139,6 +155,7 @@ def thongtin_trangchu():
         "danhsach_sanpham": danhsach_sanpham,
         "congty": congty,
         "phongban": phongban,
+        "quantri": quantri,
         }
     return context_trangchu
 
@@ -199,6 +216,32 @@ def themsanpham(request):
             return redirect('website:themsanpham')
     else:
         form = FormSanpham()
+    context = thongtin_trangchu()
+    context['form'] = form
+    return render(
+            request = request,
+            template_name = "website/themsanpham.html",
+            context = context,
+            )
+
+def themsanphamcon(request):
+    if not request.user.is_authenticated:
+        return redirect("website:dangnhap")
+    if request.method == "POST":
+        form = FormSanphamCon(request.POST, request.FILES)
+        if form.is_valid():
+            sanpham = Sanpham()
+            sanpham.sanpham_ten = form.cleaned_data['ten']
+            sanpham.sanpham_hinhanh = form.cleaned_data['hinhanh']
+            sanpham.sanpham_giatien = form.cleaned_data['giatien']
+            sanpham.sanpham_sanphamcha = form.cleaned_data['sanphamcha']
+            ds_slug = lay_ds_slug()
+            slug = taoslug(sanpham.sanpham_ten).lower()
+            sanpham.sanpham_slug = kiemtraslug(ds_slug, slug)
+            sanpham.save()
+            return redirect('website:themsanphamcon')
+    else:
+        form = FormSanphamCon()
     context = thongtin_trangchu()
     context['form'] = form
     return render(
