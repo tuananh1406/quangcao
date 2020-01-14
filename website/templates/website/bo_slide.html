@@ -118,14 +118,30 @@
                                         Quản trị viên
                                     </a>
                                     <ul id="ul_10">
-                                        {% for lien_ket, tieu_de in quantri %}
                                         <li>
-                                            <a href="{{ lien_ket }}"
-                                               title="{{ tieu_de }}">
-                                                {{ tieu_de }}
+                                            <a href="{% url 'website:themsanpham' %}"
+                                               title="Thêm sản phẩm">
+                                                Thêm sản phẩm
                                             </a>
                                         </li>
-                                        {% endfor %}
+                                        <li>
+                                            <a href="{% url 'website:thembaiviet' %}"
+                                               title="Thêm bài viết">
+                                                Thêm bài viết
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{% url 'website:xembaiviet' %}"
+                                               title="Xem bài viết">
+                                                Xem bài viết
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{% url 'website:dangxuat' %}"
+                                               title="đăng xuất">
+                                                Đăng xuất
+                                            </a>
+                                        </li>
                                     </ul>
                                 </li>
                                 {% else %}

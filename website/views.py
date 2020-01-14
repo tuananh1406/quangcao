@@ -4,29 +4,61 @@ from django.contrib.auth import logout, authenticate, login
 from django.http import HttpResponse
 from django.contrib.auth.forms import AuthenticationForm
 from django.urls import reverse
-from .models import Sanpham,BaiViet, Congty, Phongban
-from .forms import FormSanpham, FormBaiViet
+from .models import Sanpham, BaiViet, Congty, Phongban, SanphamCon
+from .forms import FormSanpham, FormSanphamCon, FormBaiViet
 from .xuly import taoslug, kiemtraslug
 
 # Create your views here.
 def lay_sanpham():
     #Lấy danh sách sản phẩm
     ds_sanpham = Sanpham.objects.all()
-    danhsach = [ ["#", sanpham.sanpham_ten ] for sanpham in ds_sanpham ]
+    danhsach = [
+            [
+                reverse(
+                    'website:duongdanrutgon',
+                    kwargs={'duongdan': sanpham.sanpham_slug},
+                    ),
+                sanpham.sanpham_ten
+                ] for sanpham in ds_sanpham
+            ]
     return danhsach
 
-def lay_sanpham_chitiet():
+def lay_sanpham_chitiet(sanphamcha=None):
     #Lấy chi tiết sản phẩm
-    danhsach = Sanpham.objects.all()
-    danhsach_sanpham = [["#",
+    if sanphamcha is None:
+        danhsach = Sanpham.objects.all()
+    if sanphamcha is not None:
+        danhsach = SanphamCon.objects.filter(sanpham_sanphamcha=sanphamcha)
+    danhsach_sanpham = [
+            [
+            reverse(
+                'website:duongdanrutgon',
+                kwargs={'duongdan': sanpham.sanpham_slug},
+                ),
             sanpham.sanpham_ten,
             sanpham.sanpham_hinhanh.url,
             sanpham.sanpham_giatien,
-            ] for sanpham in danhsach ]
+            ] for sanpham in danhsach
+        ]
     danhsach_sanpham_hang = []
     for i in range(0, len(danhsach_sanpham), 4):
         danhsach_sanpham_hang.append(danhsach_sanpham[i:i+4])
     return danhsach_sanpham_hang
+
+def lay_ds_slug():
+    ds_slug_baiviet = [
+            cacbaiviet.baiviet_slug
+            for cacbaiviet in BaiViet.objects.all()
+            ]
+    ds_slug_sanpham = [
+            cacsanpham.sanpham_slug
+            for cacsanpham in Sanpham.objects.all()
+            ]
+    ds_slug_sanphamcon = [
+            cacsanphamcon.sanpham_slug
+            for cacsanphamcon in SanphamCon.objects.all()
+            ]
+    return ds_slug_baiviet + ds_slug_sanpham + ds_slug_sanphamcon
 
 def thongtin_trangchu():
     #Danh sách sản phẩm
@@ -65,32 +97,37 @@ def thongtin_trangchu():
             ["hinhanh/r.png", "#", "RSS"],
             ]
 
-    #Slide trình chiếu
+    #Tạo slide trình chiếu
+    sanphammoi = Sanpham.objects.order_by('sanpham_id').reverse()[:5]
     trinhchieu = [
             {
-                "duongdan": "/static/hinhanh/bienhopden.jpg",
-                "tieude": "Biển hộp đèn",
-                },
-            {
-                "duongdan": "/static/hinhanh/bienhopden1.jpg",
-                "tieude": "Biển hộp đèn",
-                },
-            {
-                "duongdan": "/static/hinhanh/bienopcot.jpg",
-                "tieude": "Biển hộp đèn",
-                },
-            {
-                "duongdan": "/static/hinhanh/bienhethong.jpg",
-                "tieude": "Biển hộp đèn",
-                },
+                "duongdan": sanpham.sanpham_hinhanh.url,
+                "tieude": sanpham.sanpham_ten,
+                } for sanpham in sanphammoi
             ]
 
     #Quản trị viên
     quantri = [
-            [reverse('website:themsanpham'), 'Thêm sản phẩm'],
-            #[reverse('website:xemsanpham'), 'Xem sản phẩm'],
-            [reverse('website:thembaiviet'), 'Thêm bài viết'],
-            [reverse('website:xembaiviet'), 'Xem bài viết'],
+            [
+                reverse('website:themsanpham'),
+                'Thêm sản phẩm',
+                ],
+            [
+                reverse('website:themsanphamcon'),
+                'Thêm sản phẩm con',
+                ],
+            [
+                reverse('website:thembaiviet'),
+                'Thêm bài viết',
+                ],
+            [
+                reverse('website:xembaiviet'),
+                'Xem bài viết',
+                ],
+            [
+                reverse('website:dangxuat'),
+                'Đăng xuất',
+                ],
             ]
 
     #Thông tin công ty
@@ -107,6 +144,7 @@ def thongtin_trangchu():
         "danhsach_sanpham": danhsach_sanpham,
         "congty": congty,
         "phongban": phongban,
+        "quantri": quantri,
         }
     return context_trangchu
 
@@ -156,10 +194,43 @@ def themsanpham(request):
     if request.method == "POST":
         form = FormSanpham(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
-            return redirect('/themsanpham')
+            sanpham = Sanpham()
+            sanpham.sanpham_ten = form.cleaned_data['ten']
+            sanpham.sanpham_hinhanh = form.cleaned_data['hinhanh']
+            sanpham.sanpham_giatien = form.cleaned_data['giatien']
+            ds_slug = lay_ds_slug()
+            slug = taoslug(sanpham.sanpham_ten).lower()
+            sanpham.sanpham_slug = kiemtraslug(ds_slug, slug)
+            sanpham.save()
+            return redirect('website:themsanpham')
     else:
         form = FormSanpham()
+    context = thongtin_trangchu()
+    context['form'] = form
+    return render(
+            request = request,
+            template_name = "website/themsanpham.html",
+            context = context,
+            )
+
+def themsanphamcon(request):
+    if not request.user.is_authenticated:
+        return redirect("website:dangnhap")
+    if request.method == "POST":
+        form = FormSanphamCon(request.POST, request.FILES)
+        if form.is_valid():
+            sanpham = Sanpham()
+            sanpham.sanpham_ten = form.cleaned_data['ten']
+            sanpham.sanpham_hinhanh = form.cleaned_data['hinhanh']
+            sanpham.sanpham_giatien = form.cleaned_data['giatien']
+            sanpham.sanpham_sanphamcha = form.cleaned_data['sanphamcha']
+            ds_slug = lay_ds_slug()
+            slug = taoslug(sanpham.sanpham_ten).lower()
+            sanpham.sanpham_slug = kiemtraslug(ds_slug, slug)
+            sanpham.save()
+            return redirect('website:themsanphamcon')
+    else:
+        form = FormSanphamCon()
     context = thongtin_trangchu()
     context['form'] = form
     return render(
@@ -179,7 +250,7 @@ def thembaiviet(request):
             baiviet.baiviet_hinhanh = form.cleaned_data['hinhanh']
             baiviet.baiviet_noidung = form.cleaned_data['noidung']
             baiviet.baiviet_noidung_rutgon = form.cleaned_data['noidung_rutgon']
-            ds_slug = [ cacbaiviet.baiviet_slug for cacbaiviet in BaiViet.objects.all() ]
+            ds_slug = lay_ds_slug()
             slug = taoslug(baiviet.baiviet_tieude).lower()
             baiviet.baiviet_slug = kiemtraslug(ds_slug, slug)
             id_sanpham = form.cleaned_data['sanpham']
@@ -217,16 +288,19 @@ def duongdanrutgon(request, duongdan):
                 template_name = 'website/xemchitiet.html',
                 context = context,
                 )
-    return HttpResponse("%s không tìm thấy" % (duongdan))
-    '''
-    if duongdan in ds_baiviet:
-        return HttpResponse("%s bài viết" % (duongdan))
-    return HttpResponse("%s không tìm thấy" % (duongdan))
 
     if duongdan in ds_sanpham:
-        return HttpResponse("%s sản phẩm" % (duongdan))
+        sanpham = Sanpham.objects.get(sanpham_slug=duongdan)
+        context = thongtin_trangchu()
+        context['sanphamcha'] = sanpham
+        context['hang_sanpham'] = lay_sanpham_chitiet(sanpham)
+        return render(
+                request = request,
+                template_name = 'website/giaodien.html',
+                context = context,
+                )
+
     return HttpResponse("%s không tìm thấy" % (duongdan))
-    '''
 
 def dangxuat(request):
     logout(request)

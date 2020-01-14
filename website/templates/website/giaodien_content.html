@@ -2,7 +2,11 @@
 <div class="page-content">
 <div class="title">
     <h3 class="title">
+    {% if not sanphamcha %}
         Sản phẩm
+    {% else %}
+        {{ sanphamcha.sanpham_ten }}
+    {% endif %}
     </h3>
 </div>
 <div id="fldgroup">
@@ -17,7 +21,7 @@
                 </a>
             </h2>
             <div class="img">
-                <a href="#"
+                <a href="{{ duongdan }}"
                    title="{{ tensanpham }}">
                     <img src="{{ hinhanh }}"
                          alt="{{ tensanpham }}"

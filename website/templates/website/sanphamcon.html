@@ -1,0 +1,127 @@
+{% extends 'website/base.html' %}
+{% load static %}
+
+{% block header %}
+<div class="block-header">
+    <div class="category-product">
+        <p class="title">
+        <a href="{% url 'website:trangchu' %}"
+           title="Làm biển quảng cáo">
+            Làm biển quảng cáo
+        </a>
+        </p>
+        <ul id="">
+            <!--Danh mục bên trái-->
+            {% for lienket, tieude in danhsach_sanpham_con %}
+            <li>
+                <a href="{{ lienket }}"
+                   title="{{ tieude }}">
+                    {{ tieude }}
+                </a>
+            </li>
+            {% endfor %}
+            <!--Hết danh mục trái-->
+        </ul>
+    </div>
+    <script type="text/javascript"
+            src="{% static "website/js.slide.js" %}">
+    </script>
+    <script type="text/javascript">
+        $(function() {
+            $(".slideHome").jCarouselLite({
+                vertical: false,
+                hoverPause: true,
+                visible: 1,
+                scroll:1,
+                auto: 2500,
+                speed: 500,
+                btnNext: ".btn-next",
+                btnPrev: ".btn-pre",
+            });
+        });
+    </script>
+    <div class="wrapSlide">
+        <form id="frmSearch"
+              name="frmSearch"
+              method="post"
+              action="/timkiem">
+            <input type="image"
+                   src="{% static "hinhanh/btn-search.png" %}" />
+            <input type="text"
+                   name="keyword"
+                   id="keyword" />
+        </form>
+        <div class="slideHome">
+            <ul>
+                {% for slide in trinhchieu %}
+                <li>
+                    <a href="">
+                        <img src="{{ slide.duongdan }}"
+                             alt="{{ slide.tieude }}"
+                             title="{{ slide.tieude }}"
+                             />
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <div class="block-support">
+        <p class="title">Kết nối</p>
+        <div class="support">
+            <p class="cell">
+            số điện thoại
+            </p>
+            <p class="skype">
+            <a href="skype:skype?chat">
+                Phòng ban
+            </a>
+            </p>
+            <p class="yahoo">
+            <a href="ymsgr:sendIMy">
+                Phòng ban
+            </a>
+            </p>
+        </div>
+        <div class="support">
+            <p class="cell">
+            số điện thoại
+            </p>
+            <p class="skype">
+            <a href="skype:skype?chat">
+                Phòng ban
+            </a>
+            </p>
+            <p class="yahoo">
+            <a href="ymsgr:sendIMy">
+                Phòng ban
+            </a>
+            </p>
+        </div>
+        <div class="support">
+            <p class="cell">
+            số điện thoại
+            </p>
+            <p class="skype">
+            <a href="skype:skype?chat">
+                Phòng ban
+            </a>
+            </p>
+            <p class="yahoo">
+            <a href="ymsgr:sendIMy">
+                Phòng ban
+            </a>
+            </p>
+        </div>
+        <div class="hotline">
+            <p>Hot line</p>
+            số hot line
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+{% include 'website/giaodien_content.html' %}
+{% include 'website/giaodien_backtop.html' %}
+{% endblock %}
