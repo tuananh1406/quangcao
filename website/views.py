@@ -69,10 +69,10 @@ def thongtin_trangchu():
         [reverse("website:trangchu"),
             "trang chủ",
             None],
-        [reverse(
-            "website:duongdanrutgon",
-            kwargs={'duongdan': 'gioi-thieu'}
-            ),
+        [reverse('website:gioithieu'),
+            #"website:duongdanrutgon",
+            #kwargs={'duongdan': 'gioi-thieu'}
+            #),
             "giới thiệu",
             None],
         [reverse("website:xembaiviet"),
@@ -301,6 +301,12 @@ def duongdanrutgon(request, duongdan):
                 )
 
     return HttpResponse("%s không tìm thấy" % (duongdan))
+
+def gioithieu(request):
+    return render(
+            request = request,
+            template_name = 'website/gioithieu.html',
+            )
 
 def dangxuat(request):
     logout(request)

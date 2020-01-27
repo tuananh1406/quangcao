@@ -1,0 +1,138 @@
+{% load static %}
+<!DOCTYPE HTML>
+<!--
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>
+            Giới thiệu
+        </title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="{% static 'website/main.css' %}" />
+        <link 
+            rel="shortcut icon" 
+            href="{% static "hinhanh/favicon.ico" %}" />
+        <noscript><link rel="stylesheet" href="{% static 'website/noscript.css' %}" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Sidebar -->
+			<section id="sidebar">
+				<div class="inner">
+					<nav>
+						<ul>
+							<li><a href="#intro">Giới thiệu</a></li>
+							<li><a href="#one">Tầm nhìn</a></li>
+							<li><a href="#two">Sứ mệnh</a></li>
+							<li><a href="#three">Liên hệ</a></li>
+						</ul>
+					</nav>
+				</div>
+			</section>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Intro -->
+					<section id="intro" class="wrapper style1 fullscreen fade-up">
+						<div class="inner">
+							<h1>CÔNG TY TNHH KIM HƯNG</h1>
+							<h2>KIM HUNG LIABILITIS COMPANY</h2>
+							<p>
+                            Tư vấn lắp đặt 
+                            <a href='{% url 'website:trangchu' %}'>
+                                Biển quảng cáo
+                            </a> tại thành phố Vinh, Nghệ An và Hà Tĩnh.
+                            </p>
+							<ul class="actions">
+								<li><a href="#one" class="button
+                                        scrolly">Tìm hiểu thêm</a></li>
+							</ul>
+						</div>
+					</section>
+
+				<!-- One -->
+					<section id="one" class="wrapper style2 spotlights">
+						<section>
+							<div class="content">
+								<div class="inner">
+									<h2>TẦM NHÌN</h2>
+									<p>
+                                    <a href='{% url 'website:trangchu' %}'>
+                                    Quảng cáo Kim Hưng
+                                    </a>
+                                     phấn đấu không ngừng để trở thành đơn vị truyền thông quảng cáo và dịch vụ hàng đầu khu vực, là sự đảm bảo chắc chắn cho sự thành công của các thương hiệu.
+                                    </p>
+                                    <p>
+                                    Trở thàng công ty đa ngành, lớn mạnh ổn định bền vững. Đem lại những giá trị tốt đẹp cho cộng đồng xã hội và nâng cao giá trị cuộc sống của các thành viên thông qua những điều kiện phát triển tốt nhất về vật chất và tinh thần.
+                                    </p>
+								</div>
+							</div>
+						</section>
+					</section>
+
+				<!-- Two -->
+					<section id="two" class="wrapper style3 fade-up">
+						<div class="inner">
+							<h2>Sứ mệnh</h2>
+							<p>
+                            Với tiêu chí Tận tâm – Sáng tạo – Hài lòng – Thành Công, Quảng cáo Kim Hưng luôn quan niệm rằng sản phẩm - dịch vụ chất lượng là nền tảng cho sự phát triển chắc chắn và mối quan hệ bền vững nhất.
+                            </p>
+                            <p>
+                            Vì vậy, Quảng cáo Kim Hưng sẽ không ngừng sáng tạo và hoàn thiện mình để cho ra những sản phẩm chất lượng nhất, dịch vụ hoàn hảo nhất thỏa mãn tối đa sự mong đợi. Kim Hưng cam kết đem lại cho Quý khách hàng sự hài lòng cao nhất bằng chất lượng sản phẩm, thái độ phục vụ tận tâm, giá cả cạnh tranh, tư vấn chuyên nghiệp. Để Quý khách hàng cảm thấy đến với Quảng cáo Kim Hưng là sự lựa chọn hoàn hảo.
+                            </p>
+                        </div>
+                    </section>
+
+                    <!-- Three -->
+                    <section id="three" class="wrapper style1 fade-up">
+                        <div class="inner">
+                            <h2>Liên hệ</h2>
+                            <p>
+                            <a href='{% url 'website:trangchu' %}'>
+                                Công ty TNHH Kim Hưng
+                            </a>
+                            </p>
+                            <p>
+                            Website: www.quangcaokimhung.com
+                            </p>
+                            <p>
+                            Hotline: 0705 837 837
+                            </p>
+                        </div>
+                    </section>
+
+            </div>
+
+            <!-- Footer -->
+            <footer id="footer" class="wrapper style1-alt">
+                <div class="inner">
+                    <ul class="menu">
+                        <li>
+                            Công ty TNHH Dịch vụ thương mại Kim Hưng
+                        </li>
+                        <li>
+                            Design: 
+                            <a href="{% url 'website:trangchu' %}">
+                                HTA
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </footer>
+
+            <!-- Scripts -->
+            <script src="{% static 'website/jquery.min.js' %}"></script>
+            <script src="{% static 'website/jquery.scrollex.min.js' %}"></script>
+            <script src="{% static 'website/jquery.scrolly.min.js' %}"></script>
+            <script src="{% static 'website/browser.min.js' %}"></script>
+            <script src="{% static 'website/breakpoints.min.js' %}"></script>
+            <script src="{% static 'website/util.js' %}"></script>
+            <script src="{% static 'website/main.js' %}"></script>
+
+    </body>
+</html>
