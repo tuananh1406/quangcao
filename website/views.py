@@ -303,9 +303,12 @@ def duongdanrutgon(request, duongdan):
     return HttpResponse("%s không tìm thấy" % (duongdan))
 
 def gioithieu(request):
+    context = thongtin_trangchu()
     return render(
             request = request,
-            template_name = 'website/gioithieu.html',
+            #template_name = 'website/gioithieu.html',
+            template_name = 'website/gioithieu1.html',
+            context = context,
             )
 
 def dangxuat(request):
