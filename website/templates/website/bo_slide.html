@@ -169,93 +169,10 @@
                     </div>
                     {% block header %}
                     <div class="block-header">
-                        <div class="category-product">
-                            <p class="title">
-                            <a href="{% url 'website:trangchu' %}"
-                               title="Làm biển quảng cáo">
-                                Làm biển quảng cáo
-                            </a>
-                            </p>
-                            <ul id="">
-                                <!--Danh mục bên trái-->
-                                {% for lienket, tieude in danhsach_sanpham %}
-                                <li>
-                                    <a href="{{ lienket }}"
-                                       title="Tiêu đề">
-                                        {{ tieude }}
-                                    </a>
-                                </li>
-                                {% endfor %}
-                                <!--Hết danh mục trái-->
-                            </ul>
-                        </div>
-                        <script type="text/javascript"
-                                src="{% static "website/js.slide.js" %}">
-                        </script>
-                        <script type="text/javascript">
-                            $(function() {
-                                $(".slideHome").jCarouselLite({
-                                    vertical: false,
-                                    hoverPause: true,
-                                    visible: 1,
-                                    scroll:1,
-                                    auto: 2500,
-                                    speed: 500,
-                                    btnNext: ".btn-next",
-                                    btnPrev: ".btn-pre",
-                                });
-                            });
-                        </script>
-                        <div class="wrapSlide">
-                            <form id="frmSearch"
-                                  name="frmSearch"
-                                  method="post"
-                                  action="/timkiem">
-                                <input type="image"
-                                       src="{% static "hinhanh/btn-search.png" %}" />
-                                <input type="text"
-                                       name="keyword"
-                                       id="keyword" />
-                            </form>
-                            <div class="slideHome">
-                                <ul>
-                                    {% for slide in trinhchieu %}
-                                    <li>
-                                        <a href="">
-                                            <img src="{{ slide.duongdan }}"
-                                                 alt="{{ slide.tieude }}"
-                                                 title="{{ slide.tieude }}"
-                                                 />
-                                        </a>
-                                    </li>
-                                    {% endfor %}
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="block-support">
-                            <p class="title">Kết nối</p>
-                            {% for ketnoi in phongban %}
-                            <div class="support">
-                                <p class="yahoo">
-                                <a href="ymsgr:sendIMy">
-                                    {{ ketnoi.tenphong }}
-                                </a>
-                                </p>
-                                <p class="skype">
-                                <a href="skype:skype?chat">
-                                    {{ ketnoi.chucvu }}
-                                </a>
-                                </p>
-                                <p class="cell">
-                                    {{ ketnoi.sodienthoai }}
-                                </p>
-                            </div>
-                            {% endfor %}
-                            <div class="hotline">
-                                <p>Hot line</p>
-                                {{ congty.congty_hotline }}
-                            </div>
-                        </div>
+                        abc
+                        xyz
+                        123
+                        456
                     </div>
                     {% endblock %}
                 <div id="content">

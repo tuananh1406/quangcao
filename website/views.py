@@ -6,6 +6,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.urls import reverse
 from .models import Sanpham, BaiViet, Congty, Phongban, SanphamCon
 from .forms import FormSanpham, FormSanphamCon, FormBaiViet
+from .forms import FormSuaSanPham, FormSuaBaiViet
 from .xuly import taoslug, kiemtraslug
 
 # Create your views here.
@@ -69,13 +70,13 @@ def thongtin_trangchu():
         [reverse("website:trangchu"),
             "trang chủ",
             None],
-        [reverse(
+        [reverse(#'website:gioithieu'),
             "website:duongdanrutgon",
             kwargs={'duongdan': 'gioi-thieu'}
             ),
             "giới thiệu",
             None],
-        [reverse("website:xembaiviet"),
+        [reverse("website:trangchu"),
             "sản phẩm",
             {
                 "id": 18,
@@ -268,6 +269,8 @@ def thembaiviet(request):
             )
 
 def xembaiviet(request):
+    if not request.user.is_authenticated:
+        return redirect("website:dangnhap")
     context = thongtin_trangchu()
     context['dsbaiviet'] = BaiViet.objects.all()
     return render(
@@ -302,6 +305,65 @@ def duongdanrutgon(request, duongdan):
 
     return HttpResponse("%s không tìm thấy" % (duongdan))
 
+def gioithieu(request):
+    context = thongtin_trangchu()
+    return render(
+            request = request,
+            template_name = 'website/gioithieu.html',
+            context = context,
+            )
+
 def dangxuat(request):
     logout(request)
     return redirect("website:trangchu")
+
+def suasanpham(request, pk):
+    if not request.user.is_authenticated:
+        return redirect("website:dangnhap")
+    sanpham = Sanpham.objects.get(pk=pk)
+    if request.method == "POST":
+        form = FormSuaSanPham(request.POST, request.FILES, instance=sanpham)
+        if form.is_valid():
+            sanpham = form.save(commit=False)
+            ds_slug = lay_ds_slug()
+            slug = taoslug(sanpham.sanpham_ten).lower()
+            sanpham.sanpham_slug = kiemtraslug(ds_slug, slug)
+            sanpham.save()
+            return redirect('website:trangchu')
+    else:
+        form = FormSuaSanPham(instance=sanpham)
+    context = thongtin_trangchu()
+    context['form'] = form
+    return render(
+            request = request,
+            template_name = "website/suasanpham.html",
+            context = context,
+            )
+
+
+def suabaiviet(request, pk):
+    if not request.user.is_authenticated:
+        return redirect("website:dangnhap")
+    baiviet = BaiViet.objects.get(pk=pk)
+    if request.method == "POST":
+        form = FormSuaBaiViet(request.POST, request.FILES, instance=baiviet)
+        if form.is_valid():
+            baiviet = form.save(commit=False)
+            ds_slug = lay_ds_slug()
+            slug = taoslug(baiviet.baiviet_tieude).lower()
+            baiviet.baiviet_slug = kiemtraslug(ds_slug, slug)
+            baiviet.baiviet_sanpham = Sanpham.objects.get(
+                    sanpham_id=baiviet.baiviet_sanpham_id,
+                    )
+            baiviet.save()
+            return redirect('website:xembaiviet')
+    else:
+        form = FormSuaBaiViet(instance=baiviet)
+    context = thongtin_trangchu()
+    context['form'] = form
+    return render(
+            request = request,
+            template_name = "website/thembaiviet.html",
+            context = context,
+            )
+

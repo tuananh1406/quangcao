@@ -13,5 +13,8 @@ urlpatterns = [
         path('themsanphamcon/', views.themsanphamcon, name="themsanphamcon"),
         path('thembaiviet/', views.thembaiviet, name="thembaiviet"),
         path('xembaiviet/', views.xembaiviet, name="xembaiviet"),
+        #path('gioithieu/', views.gioithieu, name="gioithieu"),
         path('<duongdan>', views.duongdanrutgon, name="duongdanrutgon"),
+        path('sanpham/<pk>', views.suasanpham, name="suasanpham"),
+        path('baiviet/<pk>', views.suabaiviet, name="suabaiviet"),
 ]

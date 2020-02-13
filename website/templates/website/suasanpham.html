@@ -1,0 +1,14 @@
+{% extends 'website/base.html' %}
+{% load static %}
+{% block content%}
+<div class="title">
+    <h3 class="title">
+        Thêm sản phẩm
+    </h3>
+</div>
+{% if user.is_authenticated %}
+{% include 'website/formsuasanpham.html' %}
+{% else %}
+    Bạn chưa đăng nhập
+{% endif %}
+{% endblock %}
